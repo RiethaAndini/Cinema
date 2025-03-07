@@ -9,8 +9,8 @@
       </a>
     </div>
     <!-- /Logo -->
-    <h6 class="text-center">Masuk sebagai <a href="login.php">User</a> <a href="login_admin.php">Admin</a> </h6>
-    <form class="mb-3" action="login_auth.php" method="POST">
+    <h6 class="text-center">Masuk sebagai <a href="login_user.php">User</a> <a href="login_admin.php">Admin</a> </h6>
+    <form class="mb-3" action="loginauth_user.php" method="POST">
       <div class="mb-3">
         <label class="form-label">Username</label>
         <input type="text" class="form-control" name="username"
