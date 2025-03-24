@@ -25,6 +25,7 @@ include '.includes/toast_notification.php';
                             <th>Judul Film</th>
                             <th>Genre</th>
                             <th>Durasi</th>
+                            <th width="150px">Pilihan</th>
                         </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
@@ -96,11 +97,11 @@ include '.includes/toast_notification.php';
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-tittle">Masukkan Data</h5>
+                <h5 class="modal-title">Masukkan Data</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
             <div class="modal-body">
-                <form action="proses_film.php" method="POST">
+                <form action="proses_film.php" method="POST" enctype="multipart/form-data">
                     <div>
                         <label for="judulFilm" class="form-label">Judul Film</label>
                         <!-- Input untuk judul film baru -->
