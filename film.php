@@ -50,7 +50,8 @@ include '.includes/toast_notification.php';
                                         <i class="bx bx-dots-vertical-rounded"></i>
                                     </button>
                                     <div class="dropdown-menu">
-                                    <a href="edit_film.php?film_id=<?= $film['film_id']; ?>" class="dropdown-item">
+                                    <a href="#" class="dropdown-item"data-bs-toggle="modal"
+                                            data-bs-target="#editFilm_<?= $film['film_id']; ?>">
                                             <i class="bx bx-edit-alt me-2"></i>Edit</a>
                                             <a href="#"class="dropdown-item"data-bs-toggle="modal"
                                             data-bs-target="#deleteFilm_<?= $film['film_id']; ?>">
@@ -59,6 +60,44 @@ include '.includes/toast_notification.php';
                                 </div>
                             </td>
                         </tr>
+
+                        <!-- Modal untuk edit data film -->
+                        <div class="modal fade" id="editFilm_<?= $film['film_id']; ?>" tabindex="-1" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">Edit Data Film</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form action="proses_film.php" method="POST" enctype="multipart/form-data">
+                                            <input type="hidden" name="filmID" value="<?= $film['film_id']; ?>" />
+                                        <div>
+                                            <label for="judulFilm" class="form-label">Judul Film</label>
+                                            <input type="text" class="form-control" name="judul_film" value="<?= $film['judul_film']; ?>" required />
+                                        </div> <br>
+                                        <div class="mb-3">
+                                            <label for="formFile" class="form-label">Ubah Thumbnail</label>
+                                            <input class="form-control" type="file" name="image" accept="image/*" />
+                                        </div> <br>
+                                        <div>
+                                            <label for="genre" class="form-label">Genre</label>
+                                            <input type="text" class="form-control" name="genre" value="<?= $film['genre']; ?>" required />
+                                        </div> <br>
+                                        <div>
+                                            <label for="durasi" class="form-label">Durasi</label>
+                                            <input type="text" class="form-control" name="durasi" value="<?= $film['durasi']; ?>" required />
+                                        </div> <br>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Batal</button>
+                                            <button type="submit" name="update" class="btn btn-primary">Simpan Perubahan</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                         <!-- Modal  untuk Hapus Data film -->
                         <div class="modal fade" id="deleteFilm_<?= $film['film_id']; ?>" tabindex="-1" aria-hidden="true">
                             <div class="modal-dialog" role="document">
