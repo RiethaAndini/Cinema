@@ -74,3 +74,59 @@ if (isset($_POST['delete'])) {
      header('Location: film.php');
      exit();
  }
+
+ // Proses pembaruan film
+if (isset($_POST['update'])) {
+    // Mengambil data dari form pembaruan
+    $filmID = $_POST['filmID'];
+    $JudulFilm = $_POST['judul_film'];
+    $Genre = $_POST['genre'];
+    $durasi = $_POST['durasi'];
+    $imageDir = "assets/img/uploads/";
+
+    // periksa apakah file gambar baru diunggah
+    if (!empty($_FILES["image_path"]["name"])) {
+        $imageName = $_FILES["image_path"]["name"];
+        $imagePath = $imageDir . $imageName;
+
+        // pindahkan file baru ke direktori tujuan
+        move_uploaded_file($_FILES["image_path"]["tmp_name"], $imagePath);
+
+         // hapus gambar lama 
+         $queryOldImage = "SELECT image_path FROM film WHERE film_id = $filmID";
+         $resultOldImage = $conn->query($queryOldImage);
+         if ($resultOldImage->num_rows > 0) {
+             $oldImage = $resultOldImage->fetch_assoc()['image_path'];
+             if (file_exists($oldImage)) {
+                 unlink($oldImage); // menghapus file lama 
+             }
+         }
+    
+     } else {
+        // jika tidak ada file baru, gunakan gambar lama 
+        $imagePathQuery = "SELECT image_path FROM film WHERE film_id = $filmID";
+        $result = $conn->query($imagePathQuery);
+        $imagePath = ($result->num_rows > 0) ? $result->fetch_assoc()['image_path'] : null;
+    }
+
+    // update data postingan di database
+    $queryUpdate = "UPDATE film SET judul_film = '$JudulFilm', genre = '$Genre', durasi = '$durasi', image_path = '$imagePath' WHERE film_id = $filmID";
+    $exec = mysqli_query($conn, $queryUpdate);
+
+    // Menyimpan notifikasi keberhasilan atau kegagalan ke dalam session
+    if ($exec) {
+        $_SESSION['notification'] = [
+            'type' => 'primary',
+            'message' => 'film berhasil diperbarui!'
+        ];
+    } else {
+        $_SESSION['notification'] = [
+            'type' => 'danger',
+            'message' => 'Gagal memperbarui film: ' . mysqli_error($conn)
+        ];
+    }
+
+    // Redirect kembali ke halaman film
+    header('Location: film.php');
+    exit();
+}
