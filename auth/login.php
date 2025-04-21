@@ -10,7 +10,7 @@
     </div>
     <!-- /Logo -->
     <form class="mb-3" action="proses_login.php" method="POST">
-    <h5 class="mb-2 text-center">Selamat datang! 👋</h5>
+    <h5 class="mb-2 text-center">Selamat datang!! 👋</h5>
       <div class="mb-3">
         <label class="form-label">Username</label>
         <input type="text" class="form-control" name="username"
