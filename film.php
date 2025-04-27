@@ -23,6 +23,7 @@ include '.includes/toast_notification.php';
                         <tr class="text-center">
                             <th width="50px">#</th>
                             <th>Judul Film</th>
+                            <th>Deskripsi Film</th>
                             <th>Genre</th>
                             <th>Durasi</th>
                             <th width="150px">Pilihan</th>
@@ -40,6 +41,7 @@ include '.includes/toast_notification.php';
                             <!-- Menampilkan nomor, judul film, genre, durasi dan opsi -->
                             <td><?= $index++; ?></td>
                             <td><?= $film['judul_film']; ?></td>
+                            <td><?= $film['deskripsi']; ?></td>
                             <td><?= $film['genre']; ?></td>
                             <td><?= $film['durasi']; ?></td>
                             <td>
@@ -79,6 +81,10 @@ include '.includes/toast_notification.php';
                                         <div class="mb-3">
                                             <label for="formFile" class="form-label">Ubah Thumbnail</label>
                                             <input class="form-control" type="file" name="image" accept="image/*" />
+                                        </div> <br>
+                                        <div>
+                                            <label for="deskripsi" class="form-label">Deskripsi Film</label>
+                                            <input type="text" class="form-control" name="deskripsi" value="<?= $film['deskripsi']; ?>" required />
                                         </div> <br>
                                         <div>
                                             <label for="genre" class="form-label">Genre</label>
@@ -150,6 +156,11 @@ include '.includes/toast_notification.php';
                         <!-- input untuk thumbnail -->
                             <label for="formFile" class="form-label">Unggah Thumbnail</label>
                             <input class="form-control" type="file" name="image" accept="image/*" />
+                    </div> <br>
+                    <div>
+                        <label for="deskripsi" class="form-label">Deskripsi Film</label>
+                        <!-- Input untuk genre baru -->
+                         <input type="text" class="form-control" name="deskripsi"required/>
                     </div> <br>
                     <div>
                         <label for="genre" class="form-label">Genre</label>
