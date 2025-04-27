@@ -10,6 +10,7 @@ session_start();
 if (isset($_POST['simpan'])) {
     // mengambil data nama film dari form
     $JudulFilm = $_POST['judul_film'];
+    $Deskripsifilm = $_POST['deskripsi'];
     $Genre = $_POST['genre'];
     $durasi = $_POST['durasi'];
 
@@ -20,7 +21,7 @@ if (isset($_POST['simpan'])) {
     // query untuk menambahkan data film ke dalam database
     if (move_uploaded_file($_FILES["image"]["tmp_name"], $imagePath)) {
 
-        $query = "INSERT INTO film (judul_film, image_path, genre, durasi) VALUES ('$JudulFilm', '$imagePath', '$Genre', '$durasi')";
+        $query = "INSERT INTO film (judul_film, image_path,deskripsi, genre, durasi) VALUES ('$JudulFilm', '$imagePath', '$Deskripsifilm', '$Genre', '$durasi')";
         $exec = mysqli_query($conn, $query);
 
     // menyimpan notifikasi berhasil atau gagal ke dalam session
@@ -80,6 +81,7 @@ if (isset($_POST['update'])) {
     // Mengambil data dari form pembaruan
     $filmID = $_POST['filmID'];
     $JudulFilm = $_POST['judul_film'];
+    $Deskripsifilm = $_POST['deskripsi'];
     $Genre = $_POST['genre'];
     $durasi = $_POST['durasi'];
     $imageDir = "assets/img/uploads/";
@@ -110,7 +112,7 @@ if (isset($_POST['update'])) {
     }
 
     // update data postingan di database
-    $queryUpdate = "UPDATE film SET judul_film = '$JudulFilm', genre = '$Genre', durasi = '$durasi', image_path = '$imagePath' WHERE film_id = $filmID";
+    $queryUpdate = "UPDATE film SET judul_film = '$JudulFilm', deskripsi = '$Deskripsifilm', genre = '$Genre', durasi = '$durasi', image_path = '$imagePath' WHERE film_id = $filmID";
     $exec = mysqli_query($conn, $queryUpdate);
 
     // Menyimpan notifikasi keberhasilan atau kegagalan ke dalam session
