@@ -8,18 +8,21 @@
         <span class="app-brand-text demo text-uppercase fw-bolder">Cinema</span>
       </a>
     </div>
+    
     <!-- /Logo -->
-    <h6 class="text-center">Masuk sebagai <a href="login_user.php">User</a> <a href="login_admin.php">Admin</a> </h6>
-    <form class="mb-3" action="proses_user.php" method="POST">
+    <form class="mb-3" action="proses_login.php" method="POST">
+    <h5 class="mb-2 text-center">Selamat datang! 👋</h5>
       <div class="mb-3">
         <label class="form-label">Username</label>
         <input type="text" class="form-control" name="username"
           placeholder="Enter your username" autofocus required />
       </div>
+
       <div class="mb-3 form-password-toggle">
         <div class="d-flex justify-content-between">
           <label class="form-label" for="password">Password</label>
         </div>
+
         <div class="input-group input-group-merge">
           <input type="password" class="form-control" name="password"
             placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
@@ -33,9 +36,9 @@
     </form>
     <p class="text-center">
     <span>Belum punya akun?</span><a href="register.php"><span> Daftar</span></a>
-
     </p>
   </div>
 </div>
+
 <!-- /Register -->
 <?php include(".layouts/footer.php"); ?>
