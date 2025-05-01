@@ -6,6 +6,11 @@ navbar-detached align-items-center bg-navbar-theme" id="layout-navbar">
       <i class="bx bx-menu bx-sm"></i>
     </a>
   </div>
+  <?php if ($_SESSION['role'] === 'user') : ?>
+      <div class="navbar-brand d-flex align-items-center">
+        <span class="fw-bold fs-4 text-uppercase">CINEMA</span>
+      </div>
+    <?php endif; ?>
   <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
     <ul class="navbar-nav flex-row align-items-center ms-auto">
       <!-- User -->
@@ -24,6 +29,7 @@ navbar-detached align-items-center bg-navbar-theme" id="layout-navbar">
                     <img src="assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
                   </div>
                 </div>
+                
                 <div class="flex-grow-1">
                   <span class="fw-semibold d-block"><?php echo $name; ?></span>
                   <small class="text-muted"><?php echo $role; ?></small>
