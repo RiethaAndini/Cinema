@@ -36,7 +36,6 @@ include '.includes/toast_notification.php';
                         
                         <tr class="text-center">
                             <td>
-                                <a href="detail_film.php?film_id=<?= $film['film_id']; ?>">
                                     <img src="<?= $film['image_path']; ?>" alt="Thumbnail" style="width: 150px; height: auto; border-radius: 5px;">
                                 </a>
                             </td>
