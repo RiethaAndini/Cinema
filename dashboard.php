@@ -23,7 +23,7 @@ include '.includes/toast_notification.php';
                                 <th>Judul film</th>
                                 <th>Genre</th>
                                 <th>Durasi</th>
-                                <th width="150px">Pilihan</th>
+                                <th width="150px">Deskripsi Film</th>
                             </tr>
                         </thead>
                         <tbody class="table-border-bottom-0">
@@ -43,7 +43,7 @@ include '.includes/toast_notification.php';
                             <td><?= $film['judul_film']; ?></td>
                             <td><?= $film['genre']; ?></td>
                             <td><?= $film['durasi']; ?></td>
-                            <td> <a href="pesan.php?film_id=<?= $film['film_id']; ?>" class="btn btn-sm btn-primary">Pesan</a> </td>
+                            <td><?= $film['deskripsi']; ?></td>
                         </tr>
                         <?php endwhile; ?>
                         </tbody>
