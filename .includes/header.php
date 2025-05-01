@@ -41,8 +41,8 @@ include "init_session.php";
     <!-- Layout wrapper -->
     <div class="layout-wrapper layout-content-navbar">
       <div class="layout-container">
-      <?php if ($_SESSION['role'] === 'admin') : ?>
-        <?php include "sidemenu.php"; ?>
+      <?php if ($_SESSION['role'] === 'admin') : 
+         include "sidemenu.php"; ?>
     <?php endif; ?>
         <!-- Layout container -->
         <div class="layout-page">
