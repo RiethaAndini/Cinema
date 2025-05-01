@@ -18,8 +18,6 @@
       </a>
     </li>
 
-    <?php if ($_SESSION['role'] === 'admin') : ?>
-      <!-- Film Menu Khusus Admin -->
       <li class="menu-header small text-uppercase"><span class="menu-header-text">FILM</span></li>
       <li class="menu-item">
         <a href="film.php" class="menu-link">
@@ -27,8 +25,7 @@
           <div data-i18n="Film">Data Film</div>
         </a>
       </li>
-    <?php endif; ?>
-
+      
   </ul>
 </aside>
 <!-- / Menu -->
