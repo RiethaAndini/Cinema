@@ -24,8 +24,11 @@
           <i class="menu-icon tf-icons bx bx-film"></i>
           <div data-i18n="Film">Data Film</div>
         </a>
+        <a href="tambah_jadwal.php" class="menu-link">
+          <i class="menu-icon tf-icons bx bx-film"></i>
+          <div data-i18n="Film">Tambah Jadwal</div>
+        </a>
       </li>
-      
   </ul>
 </aside>
 <!-- / Menu -->
