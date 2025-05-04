@@ -6,8 +6,6 @@ include(".layouts/header.php");
 <!-- Card utama untuk form login -->
 <div class="card">
   <div class="card-body">
-
-    <!-- Logo aplikasi -->
     <div class="app-brand justify-content-center">
       <a href="index.html" class="app-brand-link gap-2">
         <span class="app-brand-text demo text-uppercase fw-bolder">Cinema</span>
@@ -38,6 +36,7 @@ include(".layouts/header.php");
           <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
         </div>
       </div>
+
       <!-- Tombol submit -->
       <div class="mb-3">
         <button class="btn btn-primary d-grid w-100" type="submit">Masuk</button>
