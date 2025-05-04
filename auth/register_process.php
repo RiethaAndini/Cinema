@@ -7,9 +7,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $_POST["name"];
     $password = $_POST["password"];
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+    $role = 'user';
 
-    $sql = "INSERT INTO users (username, nama, password)
-    VALUES ('$username', '$name', '$hashedPassword')";
+    $sql = "INSERT INTO users (username, nama, password, role)
+    VALUES ('$username', '$name', '$hashedPassword', '$role')";
     if ($conn->query($sql) === TRUE) {
         // simpan notifikasi ke dalam session
         $_SESSION['notification'] = [
@@ -22,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             'message' => 'Gagal Registrasi: ' . mysqli_error($conn)
         ];
     }
-    header('Location: login_user.php');
+    header('Location: login.php');
     exit();
 
 }
