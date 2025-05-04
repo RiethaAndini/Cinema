@@ -29,13 +29,18 @@ include '.includes/toast_notification.php';
                         </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
-                       <!-- Mengambil data penayangan dari database -->
-                       <?php
-                         $index = 1;
-                         $query = "SELECT * FROM penayangan";
-                         $exec = mysqli_query($conn, $query);
-                         while ($penayangan=mysqli_fetch_assoc($exec)) :
-                        ?>
+                    <?php
+                    // Inisialisasi indeks nomor urut
+                    $index = 1;
+                    // Query untuk mengambil data penayangan dan judul film
+                    $query = "SELECT penayangan.*, film.judul_film 
+                              FROM penayangan 
+                              JOIN film ON penayangan.film_id = film.film_id";
+                    // Eksekusi query
+                    $exec = mysqli_query($conn, $query);
+                    // Looping untuk menampilkan semua data penayangan
+                     while ($penayangan = mysqli_fetch_assoc($exec)) :
+                    ?>
                         <tr>
                             <!-- Menampilkan nomor, judul film, waktu dan tanggal -->
                             <td><?= $index++; ?></td>
