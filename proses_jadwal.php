@@ -9,7 +9,7 @@ session_start();
 // proses penambahan jadwal baru
 if (isset($_POST['simpan'])) {
     // mengambil data nama film dari form
-    $film_id = $_POST['judul_film'];
+    $film_id = $_POST['film_id'];
     $waktu = $_POST['waktu'];
     $tanggal = $_POST['tanggal'];
 
