@@ -1,9 +1,33 @@
+<?php 
+session_start(); // inisialisasi session
+
+// ambil notifikasi jika ada, kemudian hapus dari sesi
+$notification = $_SESSION['notification'] ?? null;
+if ($notification) {
+  unset($_SESSION['notification']);
+}
+
+if (isset($_SESSION["username"]) && isset($_SESSION["role"])) {
+  $_SESSION['notification'] = [
+    'type' => 'danger',
+    'message' => 'Silahkan Logout Terlebih Dahulu!'
+  ];
+
+  if ($_SESSION["role"] === "admin") {
+    header('Location: ../dashboard.php');
+    exit;
+  } elseif ($_SESSION["role"] === "user") {
+    header('Location: ../dashboard_user.php');
+    exit;
+  }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
-    <title>IdeKreatif</title>
+    <title>Cinema</title>
     <meta name="description" content="" />
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico" />
