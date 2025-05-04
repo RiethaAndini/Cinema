@@ -10,14 +10,12 @@ $film_id = $_GET['id'];
 
 // Query untuk mengambil detail film dan waktu penayangan (kalau ada)
 $query = "SELECT film.*, penayangan.waktu 
-               FROM film 
-               LEFT JOIN penayangan 
-               ON film.film_id = penayangan.film_id 
-               WHERE film.film_id = $film_id";
-
+          FROM film 
+          LEFT JOIN penayangan 
+          ON film.film_id = penayangan.film_id 
+          WHERE film.film_id = $film_id";
 // Eksekusi query
 $exec = mysqli_query($conn, $query);
-
 // Ambil data film sebagai array asosiatif
 $film = mysqli_fetch_assoc($exec);
 ?>
@@ -77,7 +75,6 @@ $film = mysqli_fetch_assoc($exec);
 </div>
 
 <!-- Modal untuk pesan tiket -->
-<!-- Modal buat form pemesanan -->
 <div class="modal fade" id="pesanfilm_<?= $film['film_id']; ?>" tabindex="-1" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
