@@ -80,7 +80,7 @@ include '.includes/toast_notification.php';
                                         </div> <br>
                                         <div class="mb-3">
                                             <label for="formFile" class="form-label">Ubah Thumbnail</label>
-                                            <input class="form-control" type="file" name="image" accept="image/*" />
+                                            <input class="form-control" type="file" name="image_path" accept="image/*" />
                                         </div> <br>
                                         <div>
                                             <label for="deskripsi" class="form-label">Deskripsi Film</label>
