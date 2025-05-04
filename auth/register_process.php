@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             'message' => 'Gagal Registrasi: ' . mysqli_error($conn)
         ];
     }
-    header('Location: login_user.php');
+    header('Location: login.php');
     exit();
 
 }
